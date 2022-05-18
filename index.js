@@ -51,21 +51,22 @@ function isWinner(option, opponentOption) {
 }
 
 function addResult(userEmoji, compEmoji, winner) {
-  const wrapper = document.createElement('div');
+  /* const wrapper = document.createElement('div'); */
   const userChoice = document.createElement('div');
   const compChoice = document.createElement('div');
 
   userChoice.textContent = userEmoji;
   compChoice.textContent = compEmoji;
 
-  wrapper.append(userChoice, compChoice);
-  results.append(wrapper);
+  /* wrapper.append(userChoice, compChoice); */
+  results.prepend(compChoice);
+  results.prepend(userChoice);
 
   userChoice.classList.add('history');
   compChoice.classList.add('history');
   userChoice.classList.remove('winner');
   compChoice.classList.remove('winner');
-  wrapper.classList.add('wrapper');
+  /* wrapper.classList.add('wrapper'); */
 
   if (winner === 'user') {
     userChoice.classList.add('winner');
